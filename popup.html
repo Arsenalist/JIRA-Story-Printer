@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Address Picker</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/popup.js"></script>
+
+    <style>
+      body {
+        width: 300px;
+        height: 200px;
+        padding: 5px;
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+<div class="well">
+  <div id="controls">
+    <div class="control-group">
+      <label class="radio inline">
+        <input type="radio" name="point" value="start" checked> Starting
+      </label>
+      <label class="radio inline">
+        <input type="radio" name="point" value="end"> Ending
+      </label>
+    </div>
+  </div>
+  <div class="control-group">
+    <input placeholder="Start typing an address..." type="text" style="span4" id="search" autocomplete="off"  data-provide="typeahead">
+  </div>
+</div>
+  </body>
+</html>

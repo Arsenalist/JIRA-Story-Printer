@@ -1,0 +1,42 @@
+<body style="webkit-print-color-adjust: exact">
+	<div class="container">
+		<div class="well" style="-webkit-print-color-adjust: exact;">
+			<div class="row-fluid">
+				<div class="span3">
+					<% if (story.epic) { %>
+						<div class="alert alert-success"><strong><%=story.epic%></strong></div>
+					<% } %>
+					<h2>#<%=story.key%></h2>
+					<h4><%=story.assignee%><h4>
+					<% if (story.points) { %>
+						<h4>Points: <%=story.points%></h4>
+					<% } %>
+					<% if (story.estimate) { %>
+						<h4>Duration: <%=story.estimate%></h4>
+					<% } %>
+				</div>
+				<div class="span9">
+						<h2><%=story.summary%></h2>
+						<p><%=story.description%></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<% $.each(tasks, function(idx, item) { %>
+			<% if (idx % 2 == 0) { %>
+				<div class="row-fluid" style="page-break-inside: avoid">
+			<% } %>
+			<div class="span6">
+					<div class="well task-well" style="-webkit-print-color-adjust: exact;">
+						<h4><%=item.assignee%> / <%=item.estimate%></h4>					
+						<h2>#<%=story.key%> / #<%=item.key%></h2>
+						<h2><%=item.summary%></h2>					
+					</div>
+			</div>
+			<% if (idx % 2 == 1) { %>
+				</div>
+			<% } %>
+		<% });%>
+	</div>
+</body>
