@@ -20,6 +20,24 @@
 						<p><%=story.description%></p>
 				</div>
 			</div>
+			<% if (story.acceptanceCriteria || story.assumptions || story.constraints) { %>
+				<div class="row-fluid">
+					<div class="span12">
+							<% if (story.acceptanceCriteria) { %>
+								<h4>Acceptance Criteria</h4>
+								<p><%=story.acceptanceCriteria%></p>
+							<% } %>						
+							<% if (story.assumptions) { %>
+								<h4>Assumptions</h4>
+								<p><%=story.assumptions%></p>
+							<% } %>						
+							<% if (story.constraints) { %>
+								<h4>Constraints</h4>
+								<p><%=story.constraints%></p>
+							<% } %>						
+					</div>
+				</div>
+			<% } %>
 		</div>
 	</div>
 	<div class="container">

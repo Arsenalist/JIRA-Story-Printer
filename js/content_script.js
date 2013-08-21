@@ -6,6 +6,9 @@ chrome.runtime.onMessage.addListener(
   	}
   	var storyTemplate = getTemplate('templates/story.html');
   	var template = _.template(storyTemplate);
+  	console.log("log is ");
+  	var x = getIssueInfo();
+  	console.log("x is ", x);
   	$('html').html(template(getIssueInfo()));
   	setTaskBoxHeights();
 
@@ -48,8 +51,11 @@ function getStoryInfo() {
 		'summary': $('#summary-val').justText(),
 		'description': $('#description-val .user-content-block').html().replace(toStripFromDescription, ''),
 		'points': $('strong[title="Story Points"]').next().justText(),
+		'assumptions': $('strong[title="Assumptions"]').next().find('.flooded').html(),
+		'constraints': $('strong[title="Constraints"]').next().find('.flooded').html(),
+		'acceptanceCriteria': $('strong[title="Acceptance Criteria"]').next().find('.flooded').html(),
 		'assignee': $('#assignee-val .user-hover').justText(),
-		'epic': $("dt:contains('Epic:')").next().find('a').justText(),
+		'epic': $('strong[title="Epic Link"]').next().find('a').justText(),
 		'estimate': $('#tt_aggregate_values_orig').justText()
 	}
 }
@@ -82,3 +88,4 @@ jQuery.fn.justText = function() {
             .trim();
  
 };
+
